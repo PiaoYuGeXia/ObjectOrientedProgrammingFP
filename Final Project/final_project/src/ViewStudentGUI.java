@@ -21,7 +21,7 @@ public class ViewStudentGUI extends JFrame{
 	FileManager fm = FileManager.getFileManager();
 
   private Attendance attd = new Attendance(new HashMap<Person, Boolean[]>());
-  private final String dataFile = "lib/teacher.dat";
+  private final String dataFile = "Final Project/final_project/lib/teacher.dat";
 
   public ViewStudentGUI(){
 		this.setTitle("View Students");
