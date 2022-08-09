@@ -70,7 +70,7 @@ class StudentTableModel extends AbstractTableModel{
 	private Object[][] data;
 
 	StudentTableModel(HashMap<Person, Boolean[]> dataMap){
-		data = new Object[dataMap.size()][8];
+		data = new Object[dataMap.size()][7];
     int i = 0;
 		for(Person e : dataMap.keySet()){
       data[i][0] = (String)((Student)e).getName();
@@ -80,7 +80,6 @@ class StudentTableModel extends AbstractTableModel{
 			data[i][4] = (Boolean)dataMap.get(e)[2];
 			data[i][5] = (Boolean)dataMap.get(e)[3];
 			data[i][6] = (Boolean)dataMap.get(e)[4];
-			data[i][7] = "delete";
 			i++;
     }
 	}
