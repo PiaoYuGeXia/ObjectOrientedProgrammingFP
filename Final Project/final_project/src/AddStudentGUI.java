@@ -33,9 +33,9 @@ public class AddStudentGUI extends JFrame{
 			JOptionPane.showMessageDialog(null, fieldEmptyMsg);
 		} else{
 			//Read previous data to Attendance then modify it
-			attd = FileManager.read(fileName);
+			attd = fm.read(fileName);
 			attd.addPerson(new Student(txtField1.getText(), txtField2.getText()));
-			Boolean res = FileManager.save(attd, fileName);
+			Boolean res = fm.save(attd, fileName);
 			//If (not)saved successfully, respond
 			if(res){
 				JOptionPane.showMessageDialog(null, successMsg);

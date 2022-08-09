@@ -6,7 +6,13 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 public class FileManager {
-  public static Boolean save(Attendance attd, String fileName){
+  private FileManager(){};
+  private static FileManager fm = new FileManager();
+  public static FileManager getFileManager(){
+    return fm;
+  }
+
+  public Boolean save(Attendance attd, String fileName){
     try{
       FileOutputStream fos = new FileOutputStream(fileName);
       ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -19,7 +25,7 @@ public class FileManager {
       return false;
     }
   }
-  public static Attendance read(String fileName){
+  public Attendance read(String fileName){
     Attendance attd = new Attendance(new HashMap<Person, Boolean[]>());
     try {
       FileInputStream fis = new FileInputStream(fileName);

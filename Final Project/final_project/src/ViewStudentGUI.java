@@ -18,6 +18,7 @@ public class ViewStudentGUI extends JFrame{
 	JTable table;
 	JScrollPane scrollPane;
 	StudentTableModel tmodel;
+	FileManager fm = FileManager.getFileManager();
 
   private Attendance attd = new Attendance(new HashMap<Person, Boolean[]>());
   private final String dataFile = "lib/teacher.dat";
@@ -32,7 +33,7 @@ public class ViewStudentGUI extends JFrame{
 		contentPane.setLayout(null);
 
     //Read previous data from file
-    attd = FileManager.read(dataFile);
+    attd = fm.read(dataFile);
 
 		//Put data into jtable for diaplay
 		tmodel = new StudentTableModel(attd.getpMap());
@@ -44,7 +45,7 @@ public class ViewStudentGUI extends JFrame{
 			@Override
 			public void tableChanged(TableModelEvent e) {
 				attd = new Attendance(tmodel.update());
-				FileManager.save(attd, dataFile);
+				fm.save(attd, dataFile);
 			}
 		});
 		table.setFillsViewportHeight(true);
