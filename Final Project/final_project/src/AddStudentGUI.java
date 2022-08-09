@@ -19,7 +19,7 @@ public class AddStudentGUI extends JFrame{
 	private JLabel field2lbl;
 	private String field1txt = "Name";
 	private String field2txt = "NetID";
-	private final String fileName = "lib/teacher.dat";
+	private final String fileName = "Final Project/final_project/lib/teacher.dat";
   Attendance attd = new Attendance(new HashMap<Person, Boolean[]>());
 	FileManager fm = FileManager.getFileManager();
 
