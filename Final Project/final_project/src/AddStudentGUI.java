@@ -21,6 +21,7 @@ public class AddStudentGUI extends JFrame{
 	private String field2txt = "NetID";
 	private final String fileName = "lib/teacher.dat";
   Attendance attd = new Attendance(new HashMap<Person, Boolean[]>());
+	FileManager fm = FileManager.getFileManager();
 
 	private void addStudent(){
 		this.setTitle("Add Student");
