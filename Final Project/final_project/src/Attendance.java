@@ -37,8 +37,9 @@ public class Attendance {
   }
 
   //Toggle boolean of one person's one day
-  public void takeAttendance(int entry, int day){
-    
+  public void takeAttendance(String name, int day){
+    int index = this.name.indexOf(name);
+    this.attd.get(index)[day] = !this.attd.get(index)[day];
   }
 
 }
