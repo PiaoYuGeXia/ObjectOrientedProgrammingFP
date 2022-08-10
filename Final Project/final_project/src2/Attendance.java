@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Attendance {
+public class Attendance implements Serializable{
   private ArrayList<String> name;
   private ArrayList<Person> ppl;
   private ArrayList<Boolean[]> attd;
