@@ -7,7 +7,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class UserGUI extends JFrame{
+public class UserGUIehh extends JFrame{
   private JPanel contentPane;
 	private JButton btnAddPerson;
 	private JButton btnViewPerson;
@@ -15,7 +15,7 @@ public class UserGUI extends JFrame{
 	private String addbtnlbl = "Add Person";
 	private String viewbtnlbl = "View Person";
 
-  public UserGUI(String credential){
+  public UserGUIehh(String credential){
 		this.setTitle("Logged in as: " + credential);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(800, 400, 260, 300);

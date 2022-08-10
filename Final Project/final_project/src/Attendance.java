@@ -30,7 +30,10 @@ public class Attendance {
 
   //Remove entry
   public void removePerson(String name){
-    ppl.
+    int index = this.name.indexOf(name);
+    this.name.remove(index);
+    this.ppl.remove(index);
+    this.attd.remove(index);
   }
 
   //Toggle boolean of one person's one day
@@ -38,16 +41,4 @@ public class Attendance {
     
   }
 
-  @Override
-  public String toString(){
-    String s = "";
-    for(Person p : pMap.keySet()){
-      s += p.getName() + ", " + p.getID() + ", ";
-      for (Boolean b : pMap.get(p)){
-        s += b + " ";
-      }
-      s += "\n";
-    }
-    return s;
-  }
 }
