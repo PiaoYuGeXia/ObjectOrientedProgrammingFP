@@ -1,4 +1,3 @@
-import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 
 public class Attendance {
@@ -6,22 +5,17 @@ public class Attendance {
   private ArrayList<Person> ppl;
   private ArrayList<Boolean[]> attd;
 
-  public ArrayList<Boolean[]> getAttd() {
-    return attd;
-  }
-
   public Attendance(){
     name = new ArrayList<String>();
     ppl = new ArrayList<Person>();
     attd = new ArrayList<Boolean[]>();
   }
 
+  public ArrayList<Boolean[]> getAttd() {
+    return attd;
+  }
   public int getSize(){
     return ppl.size();
-  }
-
-  public ArrayList<String> getName() {
-    return name;
   }
   public ArrayList<Person> getPpl() {
     return ppl;
