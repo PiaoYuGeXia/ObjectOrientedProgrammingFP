@@ -1,40 +1,36 @@
-import java.io.Serializable;
-import java.util.HashMap;
+import java.util.ArrayList;
 
-public class Attendance implements Serializable{
-  private HashMap<Person, Boolean[]> pMap;
+public class Attendance {
+  private ArrayList<String> name;
+  private ArrayList<Person> ppl;
+  private ArrayList<Boolean[]> attd;
 
-  public HashMap<Person, Boolean[]> getpMap() {
-    return pMap;
+  public Attendance getAttd() {
+    return this;
   }
 
   //Needs to be modified/deleted
-  public Attendance(HashMap<Person, Boolean[]> hashMap){
-    if(hashMap == null){
-      pMap = new HashMap<Person, Boolean[]>();
-    }else{
-      this.pMap = hashMap;
-    }
+  public Attendance(){
+    name = new ArrayList<String>();
+    ppl = new ArrayList<Person>();
+    attd = new ArrayList<Boolean[]>();
   }
 
   public int getSize(){
-    return pMap.size();
+    return ppl.size();
   }
 
   //Add entry
   public void addPerson(Person p){
-    //Monday to Friday
-    pMap.put(p, new Boolean[]{false, false, false, false, false});
+    name.add(p.getName());
+    ppl.add(p);
+    Boolean[] temp = {false, false, false, false, false};
+    attd.add(temp);
   }
 
   //Remove entry
   public void removePerson(String name){
-    for(Person e : pMap.keySet()){
-      if(e.getName() == name){
-        pMap.remove(e);
-        break;
-      }
-    }
+    ppl.
   }
 
   //Toggle boolean of one person's one day

@@ -43,14 +43,9 @@ public class UserGUI extends JFrame{
 		contentPane.add(btnAddPerson);
     btnAddPerson.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//check credential
-				if(credential.equals("teacher")){
-					AddStudentGUI addstudentgui= new AddStudentGUI();
-					addstudentgui.setVisible(true);
-				} else if(credential.equals("employer")){
-					// AddEmployeeGUI addemployeegui = new AddEmployeeGUI();
-					// addemployeegui.setVisible(true);
-				}
+				AddGUIFactory af = new AddGUIFactory();
+				AddGUI agui = af.create(credential);
+				agui.setVisible(true);
 			}
 		});
 
