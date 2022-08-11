@@ -7,13 +7,6 @@ public class UserGUIEmployee extends UserGUI{
   @Override
   void addPerson() {
     AddGUIEmployee agui = new AddGUIEmployee();
-    agui.setVisible(true);
+    agui.setVisible(true); 
   }
-
-  @Override
-  void viewPerson() {
-    ViewGUIEmployee vgui = new ViewGUIEmployee();
-    vgui.setVisible(true);
-  }
-  
 }

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 public abstract class UserGUI extends JFrame{
 
   protected String credential;
+  protected ViewGUIFactory vf;
 
   protected JPanel contentPane;
   protected String addbtnlbl;
@@ -65,5 +66,9 @@ public abstract class UserGUI extends JFrame{
   }
 
   abstract void addPerson();
-  abstract void viewPerson();
+
+  void viewPerson() {
+    vf = new ViewGUIFactory();
+    vf.create(credential);
+  }
 }

@@ -14,13 +14,14 @@ public class ViewGUI extends JFrame{
   protected JButton btnCancel;
 	protected JTable table;
 	protected JScrollPane scrollPane;
-	protected TableModelStudent tmodel;
+  protected TableModelFactory tmf;
+	protected TableModelUser tmodel;
 	FileManager fm = FileManager.getFileManager();
 
   protected Attendance attd;
   protected String dataFile;
 
-  public ViewGUI(String dataFile){
+  public ViewGUI(String dataFile, String credential){
     this.dataFile = dataFile;
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(800, 400, 800, 600);
@@ -33,7 +34,9 @@ public class ViewGUI extends JFrame{
     attd = fm.read(dataFile);
 
 		//Put data into jtable for diaplay
-		tmodel = new TableModelStudent(attd.getPpl(), attd.getAttd());
+
+    tmf = new TableModelFactory();
+    tmodel = tmf.create(credential, attd.getPpl(), attd.getAttd());
 		table = new JTable(tmodel);
 		scrollPane = new JScrollPane(table);
 
@@ -50,7 +53,7 @@ public class ViewGUI extends JFrame{
 		contentPane.add(scrollPane);
 
     //Close current window
-		btnCancel = new JButton("Cancel");
+		btnCancel = new JButton("Close");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

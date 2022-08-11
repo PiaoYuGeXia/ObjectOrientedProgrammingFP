@@ -1,5 +1,3 @@
-import java.io.File;
-
 public class App {
     public static void main(String[] args) {
         LoginGUI lgui = new LoginGUI();
@@ -14,10 +12,7 @@ public class App {
         // fm.save(attdStudent, fileTeacher);
 
         // Attendance attdEmployee = new Attendance();
-        // attdEmployee.addPerson(new Student("Jason", "jz4495"));
+        // attdEmployee.addPerson(new Employee("Jason", "jz4495","600"));
         // fm.save(attdEmployee, fileEmployer);
-        // attdStudent = fm.read(fileTeacher);
-        // System.out.println(attdStudent.getPpl().get(0).getName());
-        // System.out.println(attdStudent.getAttd().get(0)[2]);
     }
 }

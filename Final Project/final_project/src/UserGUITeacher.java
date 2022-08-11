@@ -7,14 +7,6 @@ public class UserGUITeacher extends UserGUI{
   @Override
   void addPerson() {
     AddGUIStudent agui = new AddGUIStudent();
-    agui.setVisible(true);
-    
+    agui.setVisible(true); 
   }
-
-  @Override
-  void viewPerson() {
-    ViewGUIStudent vgui = new ViewGUIStudent();
-    vgui.setVisible(true);
-  }
-  
 }

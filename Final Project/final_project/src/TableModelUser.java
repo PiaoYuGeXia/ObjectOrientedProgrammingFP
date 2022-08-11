@@ -6,7 +6,7 @@ abstract class TableModelUser extends AbstractTableModel{
 	protected String[] columnNames;
 	protected Object[][] data;
 
-	TableModelUser(ArrayList<Person> p, ArrayList<boolean[]> arrayList){
+	TableModelUser(ArrayList<Person> p, ArrayList<boolean[]> attdList){
     int varlength = p.get(0).getFields().length;
     String[] fieldNames = p.get(0).getFieldNames();
 		columnNames = new String[fieldNames.length+5];
@@ -18,20 +18,15 @@ abstract class TableModelUser extends AbstractTableModel{
 		data = new Object[p.size()][varlength + 5];
 		for(int i = 0; i < p.size(); i++){
 			String[] vars = p.get(i).getFields();
-      for(int j = 0; j < varlength; j++){
+      for(int j = 0; j < varlength + 5; j++){
         if(j < varlength){
           data[i][j] = vars[j];
           columnNames[j] = fieldNames[j];
         } else{
-          data[i][j] = (boolean)arrayList.get(i)[j-varlength];
+          data[i][j] = (boolean)attdList.get(i)[j-varlength];
         }
       }
     }
-		for(Object[] ob : data){
-			for (Object obb : ob){
-				System.out.println(obb);
-			}
-		}
 	}
 
 	abstract Attendance update();

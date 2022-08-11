@@ -69,9 +69,8 @@ public class LoginGUI extends JFrame{
           lblMsg.setVisible(true);
           txtAcc.setText("");
           txtPwd.setText("");
-        }else { //login as specified credential
-          ugui = uGuiFactory.create(c);
-          ugui.setVisible(true);
+        }else { //login as specified credential with a factory
+          uGuiFactory.create(c);
           dispose();
 				}
 			}
@@ -88,6 +87,7 @@ public class LoginGUI extends JFrame{
 		btnExit.setBounds(80, 220, 100, 30);
 		contentPane.add(btnExit);
 
+		//msg that appears when wrong name/pwd is entered
     lblMsg = new JLabel("Incorrect account name or password :(");
 		lblMsg.setBounds(10, 120, 240, 20);
 		contentPane.add(lblMsg);
