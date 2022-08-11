@@ -1,27 +1,20 @@
-import java.io.ObjectInputStream.GetField;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Attendance {
-  private ArrayList<String> name;
+public class Attendance implements Serializable{
   private ArrayList<Person> ppl;
-  private ArrayList<Boolean[]> attd;
-
-  public ArrayList<Boolean[]> getAttd() {
-    return attd;
-  }
+  private ArrayList<boolean[]> attd;
 
   public Attendance(){
-    name = new ArrayList<String>();
     ppl = new ArrayList<Person>();
-    attd = new ArrayList<Boolean[]>();
+    attd = new ArrayList<boolean[]>();
   }
 
+  public ArrayList<boolean[]> getAttd() {
+    return attd;
+  }
   public int getSize(){
     return ppl.size();
-  }
-
-  public ArrayList<String> getName() {
-    return name;
   }
   public ArrayList<Person> getPpl() {
     return ppl;
@@ -29,24 +22,37 @@ public class Attendance {
 
   //Add entry
   public void addPerson(Person p){
-    name.add(p.getName());
     ppl.add(p);
-    Boolean[] temp = {false, false, false, false, false};
+    boolean[] temp = {false, false, false, false, false};
     attd.add(temp);
+  }
+
+  public void addPerson(Person p, boolean[] b){
+    ppl.add(p);
+    attd.add(b);
   }
 
   //Remove entry
   public void removePerson(String name){
-    int index = this.name.indexOf(name);
-    this.name.remove(index);
-    this.ppl.remove(index);
-    this.attd.remove(index);
+    int i;
+    for (i = 0; i < ppl.size(); i++){
+      if(ppl.get(i).getName() == name){
+        break;
+      }
+    }
+    this.ppl.remove(i);
+    this.attd.remove(i);
   }
 
-  //Toggle boolean of one person's one day
-  public void takeAttendance(String name, int day){
-    int index = this.name.indexOf(name);
-    this.attd.get(index)[day] ^= true;
-  }
+  // //Toggle boolean of one person's one day
+  // public void takeAttendance(String name, int day){
+  //   int i;
+  //   for (i = 0; i < ppl.size(); i++){
+  //     if(ppl.get(i).getName() == name){
+  //       this.attd.get(i)[day] ^= true;
+  //       break;
+  //     }
+  //   }
+  // }
 
 }

@@ -4,4 +4,21 @@ public class Student extends Person{
     name = n;
     ID = i;
   }
+
+  @Override
+  public String toString() {
+		return "Name: " + name + ", ID: " + ID + "\n";
+	}
+
+  @Override
+  String[] getFields() {
+    String[] s = {name, ID};
+    return s;
+  }
+
+  @Override
+  String[] getFieldNames() {
+    String[] s = {"Name","Net ID"};
+    return s;
+  }
 }

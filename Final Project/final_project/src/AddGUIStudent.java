@@ -8,34 +8,31 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public abstract class AddGUI extends JFrame{
+public class AddGUIStudent extends JFrame{
   protected JPanel contentPane;
-	protected JTextField txtField1;
-	protected JTextField txtField2;
+	protected JTextField txtName;
+	protected JTextField txtID;
 	protected JButton btnAdd;
 	protected JButton btnCancel;
-	protected JLabel field1lbl;
-	protected JLabel field2lbl;
-  Attendance attd = new Attendance();
+	protected JLabel lblName;
+	protected JLabel lblID;
+  protected Attendance attd = new Attendance();
 	FileManager fm = FileManager.getFileManager();
+	protected final String fileName = "Final Project/final_project/lib/teacher.dat";
 
-  protected String field1txt = "Name";
-	protected String field2txt;
-	protected String fileName;
+  protected String successMsg = "New student successfully added";
+  protected String fieldEmptyMsg = "Please fill all fields";
+	protected String failMsg = "Oops, something went wrong";
 
-  String successMsg = "New person successfully added :D";
-  String fieldEmptyMsg = "Please fill all fields :)";
-	String failMsg = "Oops, something went wrong D:";
-
-	protected void addPerson(){
+	protected void addStudent(){
 		//Make sure both fields have stuff
-		if(txtField1.getText().isEmpty() | txtField2.getText().isEmpty()){
+		if(txtName.getText().isEmpty() | txtID.getText().isEmpty()){
 			JOptionPane.showMessageDialog(null, fieldEmptyMsg);
 		} else{
 			//Read previous data to Attendance then modify it
 			attd = fm.read(fileName);
-			attd.addPerson(new Student(txtField1.getText(), txtField2.getText()));
-			Boolean res = fm.save(attd, fileName);
+			attd.addPerson(new Student(txtName.getText(), txtID.getText()));
+			boolean res = fm.save(attd, fileName);
 			//If (not)saved successfully, respond
 			if(res){
 				JOptionPane.showMessageDialog(null, successMsg);
@@ -46,42 +43,41 @@ public abstract class AddGUI extends JFrame{
 		}
 	}
 
-  protected abstract void setTitle();
-
-  public AddGUI(){
+  public AddGUIStudent(){
+		this.setTitle("Add Student");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(800, 400, 260, 340);
+		setBounds(800, 400, 260, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-    field1lbl = new JLabel(field1txt);
-		field1lbl.setBounds(20, 40, 70, 20);
-		contentPane.add(field1lbl);
+    lblName = new JLabel("Name");
+		lblName.setBounds(20, 40, 70, 20);
+		contentPane.add(lblName);
 
-		field2lbl = new JLabel(field2txt);
-		field2lbl.setBounds(20, 80, 70, 20);
-		contentPane.add(field2lbl);
+		lblID = new JLabel("Student ID");
+		lblID.setBounds(20, 80, 70, 20);
+		contentPane.add(lblID);
 		
-		txtField1 = new JTextField();
-		txtField1.setBounds(90, 40, 120, 25);
-		contentPane.add(txtField1);
-		txtField1.setColumns(1);
+		txtName = new JTextField();
+		txtName.setBounds(90, 40, 120, 25);
+		contentPane.add(txtName);
+		txtName.setColumns(1);
 		
-		txtField2 = new JTextField();
-		txtField2.setBounds(90, 80, 120, 25);
-		contentPane.add(txtField2);
-		txtField2.setColumns(1);
+		txtID = new JTextField();
+		txtID.setBounds(90, 80, 120, 25);
+		contentPane.add(txtID);
+		txtID.setColumns(1);
 
     //Add new person to data file
     btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addPerson();
+				addStudent();
       }
 		});
-		btnAdd.setBounds(80, 180, 100, 30);
+		btnAdd.setBounds(80, 140, 100, 30);
 		contentPane.add(btnAdd);
 		
 		//Close current window
@@ -91,7 +87,7 @@ public abstract class AddGUI extends JFrame{
 				dispose();
 			}
 		});
-		btnCancel.setBounds(80, 240, 100, 30);
+		btnCancel.setBounds(80, 200, 100, 30);
 		contentPane.add(btnCancel);
   }
 }

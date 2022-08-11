@@ -5,6 +5,7 @@ public class Employee extends Person{
     ID = i;
     salary = s;
   }
+
   public String getSalary() {
     return salary;
   }
@@ -16,4 +17,17 @@ public class Employee extends Person{
   public String toString() {
 		return "Name: " + name + ", ID: " + ID + ", Salary: " + salary + "\n";
 	}
+
+
+  @Override
+  String[] getFields() {
+    String[] s = {name, ID, salary};
+    return s;
+  }
+
+  @Override
+  String[] getFieldNames() {
+    String[] s = {"Name","Work ID","Salary"};
+    return s;
+  }
 }

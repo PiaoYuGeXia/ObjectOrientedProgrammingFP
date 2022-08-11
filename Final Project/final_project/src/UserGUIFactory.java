@@ -1,17 +1,18 @@
 public class UserGUIFactory{
   UserGUI ugui;
-  public UserGUI create(String credential){
+  public void create(String credential){
     switch(credential){
       case "teacher":
-        ugui = new TeacherGUI();
+        ugui = new UserGUITeacher();
+        ugui.setVisible(true);
         break;
       case "employer":
-        ugui = new EmployerGUI();
+        ugui = new UserGUIEmployee();
+        ugui.setVisible(true);
         break;
       default:
         System.out.println("Unreachable code!");
         System.exit(1);
     }
-    return ugui;
   }
 }
