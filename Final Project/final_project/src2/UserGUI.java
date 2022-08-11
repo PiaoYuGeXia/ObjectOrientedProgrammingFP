@@ -67,7 +67,11 @@ public abstract class UserGUI extends JFrame{
   }
 
   void addPerson(){
-    
+    AddGUIFactory af = new AddGUIFactory();
+    af.create(credential);
   }
-  abstract void viewPerson();
+  void viewPerson(){
+    ViewGUIFactory vf = new ViewGUIFactory();
+    vf.create(credential);
+  }
 }

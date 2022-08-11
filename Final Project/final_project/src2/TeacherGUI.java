@@ -8,13 +8,15 @@ public class TeacherGUI extends UserGUI{
 
   @Override
   void addPerson() {
-    super.addPerson();
-    // TODO Auto-generated method stub
+    AddStudentGUI agui = new AddStudentGUI();
+    agui.setVisible(true);
+    
   }
 
   @Override
   void viewPerson() {
-    // TODO Auto-generated method stub
+    ViewStudentGUI vgui = new ViewStudentGUI();
+    vgui.setVisible(true);
     
   }
   

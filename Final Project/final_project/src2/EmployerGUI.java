@@ -8,13 +8,15 @@ public class EmployerGUI extends UserGUI{
 
   @Override
   void addPerson() {
-    // TODO Auto-generated method stub
+    AddEmployeeGUI agui = new AddEmployeeGUI();
+    agui.setVisible(true);
     
   }
 
   @Override
   void viewPerson() {
-    // TODO Auto-generated method stub
+    ViewEmployeeGUI vgui = new ViewEmployeeGUI();
+    vgui.setVisible(true);
     
   }
   
