@@ -8,32 +8,30 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AddEmployeeGUI extends JFrame{
+public class AddGUIStudent extends JFrame{
   protected JPanel contentPane;
 	protected JTextField txtName;
 	protected JTextField txtID;
-  protected JTextField txtSalary;
 	protected JButton btnAdd;
 	protected JButton btnCancel;
-  protected JLabel lblName;
+	protected JLabel lblName;
 	protected JLabel lblID;
-	protected JLabel lblSalary;
-  Attendance attd = new Attendance();
+  protected Attendance attd = new Attendance();
 	FileManager fm = FileManager.getFileManager();
-  protected String fileName = "Final Project/final_project/lib/employer.dat";
+	protected final String fileName = "Final Project/final_project/lib/teacher.dat";
 
-  String successMsg = "New employee successfully added";
-  String fieldEmptyMsg = "Please fill all fields";
-	String failMsg = "Oops, something went wrong";
+  protected String successMsg = "New student successfully added";
+  protected String fieldEmptyMsg = "Please fill all fields";
+	protected String failMsg = "Oops, something went wrong";
 
-	protected void addEmployee(){
+	protected void addStudent(){
 		//Make sure both fields have stuff
 		if(txtName.getText().isEmpty() | txtID.getText().isEmpty()){
 			JOptionPane.showMessageDialog(null, fieldEmptyMsg);
 		} else{
 			//Read previous data to Attendance then modify it
 			attd = fm.read(fileName);
-			attd.addPerson(new Employee(txtName.getText(), txtID.getText(), txtSalary.getText()));
+			attd.addPerson(new Student(txtName.getText(), txtID.getText()));
 			Boolean res = fm.save(attd, fileName);
 			//If (not)saved successfully, respond
 			if(res){
@@ -44,10 +42,11 @@ public class AddEmployeeGUI extends JFrame{
 			dispose();
 		}
 	}
-  
-  public AddEmployeeGUI(){
+
+  public AddGUIStudent(){
+		this.setTitle("Add Student");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(800, 400, 260, 340);
+		setBounds(800, 400, 260, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,13 +56,9 @@ public class AddEmployeeGUI extends JFrame{
 		lblName.setBounds(20, 40, 70, 20);
 		contentPane.add(lblName);
 
-		lblID = new JLabel("Work ID");
+		lblID = new JLabel("Student ID");
 		lblID.setBounds(20, 80, 70, 20);
 		contentPane.add(lblID);
-
-    lblSalary = new JLabel("Work ID");
-		lblSalary.setBounds(20, 120, 70, 20);
-		contentPane.add(lblSalary);
 		
 		txtName = new JTextField();
 		txtName.setBounds(90, 40, 120, 25);
@@ -75,19 +70,14 @@ public class AddEmployeeGUI extends JFrame{
 		contentPane.add(txtID);
 		txtID.setColumns(1);
 
-    txtSalary = new JTextField("600");
-		txtSalary.setBounds(90, 120, 120, 25);
-		contentPane.add(txtSalary);
-		txtSalary.setColumns(1);
-
     //Add new person to data file
     btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addEmployee();
+				addStudent();
       }
 		});
-		btnAdd.setBounds(80, 180, 100, 30);
+		btnAdd.setBounds(80, 140, 100, 30);
 		contentPane.add(btnAdd);
 		
 		//Close current window
@@ -97,7 +87,7 @@ public class AddEmployeeGUI extends JFrame{
 				dispose();
 			}
 		});
-		btnCancel.setBounds(80, 240, 100, 30);
+		btnCancel.setBounds(80, 200, 100, 30);
 		contentPane.add(btnCancel);
   }
 }

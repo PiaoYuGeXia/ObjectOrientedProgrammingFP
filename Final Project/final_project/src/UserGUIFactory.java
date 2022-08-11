@@ -3,10 +3,10 @@ public class UserGUIFactory{
   public UserGUI create(String credential){
     switch(credential){
       case "teacher":
-        ugui = new TeacherGUI();
+        ugui = new UserGUITeacher();
         break;
       case "employer":
-        ugui = new EmployerGUI();
+        ugui = new UserGUIEmployee();
         break;
       default:
         System.out.println("Unreachable code!");

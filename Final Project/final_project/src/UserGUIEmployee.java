@@ -1,18 +1,18 @@
-public class EmployerGUI extends UserGUI{
+public class UserGUIEmployee extends UserGUI{
 
-  public EmployerGUI(){
+  public UserGUIEmployee(){
     super("employer","Add Employee","Attendance");
   }
 
   @Override
   void addPerson() {
-    AddEmployeeGUI agui = new AddEmployeeGUI();
+    AddGUIEmployee agui = new AddGUIEmployee();
     agui.setVisible(true);
   }
 
   @Override
   void viewPerson() {
-    ViewEmployeeGUI vgui = new ViewEmployeeGUI();
+    ViewGUIEmployee vgui = new ViewGUIEmployee();
     vgui.setVisible(true);
   }
   

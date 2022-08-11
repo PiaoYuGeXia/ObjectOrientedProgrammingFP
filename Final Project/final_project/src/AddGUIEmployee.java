@@ -8,33 +8,32 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ViewEmployeeGUI extends JFrame{
+public class AddGUIEmployee extends JFrame{
   protected JPanel contentPane;
-	protected JTextField txtField1;
-	protected JTextField txtField2;
+	protected JTextField txtName;
+	protected JTextField txtID;
+  protected JTextField txtSalary;
 	protected JButton btnAdd;
 	protected JButton btnCancel;
-	protected JLabel field1lbl;
-	protected JLabel field2lbl;
-  Attendance attd = new Attendance();
+  protected JLabel lblName;
+	protected JLabel lblID;
+	protected JLabel lblSalary;
+  protected Attendance attd = new Attendance();
 	FileManager fm = FileManager.getFileManager();
+  protected final String fileName = "Final Project/final_project/lib/employer.dat";
 
-  protected String field1txt = "Name";
-	protected String field2txt;
-	protected String fileName;
+  protected String successMsg = "New employee successfully added";
+  protected String fieldEmptyMsg = "Please fill all fields";
+	protected String failMsg = "Oops, something went wrong";
 
-  String successMsg = "New person successfully added";
-  String fieldEmptyMsg = "Please fill all fields";
-	String failMsg = "Oops, something went wrong";
-
-	protected void addPerson(){
+	protected void addEmployee(){
 		//Make sure both fields have stuff
-		if(txtField1.getText().isEmpty() | txtField2.getText().isEmpty()){
+		if(txtName.getText().isEmpty() | txtID.getText().isEmpty()){
 			JOptionPane.showMessageDialog(null, fieldEmptyMsg);
 		} else{
 			//Read previous data to Attendance then modify it
 			attd = fm.read(fileName);
-			attd.addPerson(new Student(txtField1.getText(), txtField2.getText()));
+			attd.addPerson(new Employee(txtName.getText(), txtID.getText(), txtSalary.getText()));
 			Boolean res = fm.save(attd, fileName);
 			//If (not)saved successfully, respond
 			if(res){
@@ -45,8 +44,9 @@ public class ViewEmployeeGUI extends JFrame{
 			dispose();
 		}
 	}
-
-  public ViewEmployeeGUI(){
+  
+  public AddGUIEmployee(){
+		this.setTitle("Add Employee");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(800, 400, 260, 340);
 		contentPane = new JPanel();
@@ -54,29 +54,38 @@ public class ViewEmployeeGUI extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-    field1lbl = new JLabel(field1txt);
-		field1lbl.setBounds(20, 40, 70, 20);
-		contentPane.add(field1lbl);
+    lblName = new JLabel("Name");
+		lblName.setBounds(20, 40, 70, 20);
+		contentPane.add(lblName);
 
-		field2lbl = new JLabel(field2txt);
-		field2lbl.setBounds(20, 80, 70, 20);
-		contentPane.add(field2lbl);
+		lblID = new JLabel("Work ID");
+		lblID.setBounds(20, 80, 70, 20);
+		contentPane.add(lblID);
+
+    lblSalary = new JLabel("Work ID");
+		lblSalary.setBounds(20, 120, 70, 20);
+		contentPane.add(lblSalary);
 		
-		txtField1 = new JTextField();
-		txtField1.setBounds(90, 40, 120, 25);
-		contentPane.add(txtField1);
-		txtField1.setColumns(1);
+		txtName = new JTextField();
+		txtName.setBounds(90, 40, 120, 25);
+		contentPane.add(txtName);
+		txtName.setColumns(1);
 		
-		txtField2 = new JTextField();
-		txtField2.setBounds(90, 80, 120, 25);
-		contentPane.add(txtField2);
-		txtField2.setColumns(1);
+		txtID = new JTextField();
+		txtID.setBounds(90, 80, 120, 25);
+		contentPane.add(txtID);
+		txtID.setColumns(1);
+
+    txtSalary = new JTextField("600");
+		txtSalary.setBounds(90, 120, 120, 25);
+		contentPane.add(txtSalary);
+		txtSalary.setColumns(1);
 
     //Add new person to data file
     btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addPerson();
+				addEmployee();
       }
 		});
 		btnAdd.setBounds(80, 180, 100, 30);

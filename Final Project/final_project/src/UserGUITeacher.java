@@ -1,19 +1,19 @@
-public class TeacherGUI extends UserGUI{
+public class UserGUITeacher extends UserGUI{
 
-  public TeacherGUI(){
+  public UserGUITeacher(){
     super("teacher","Add Student","Attendance");
   }
 
   @Override
   void addPerson() {
-    AddStudentGUI agui = new AddStudentGUI();
+    AddGUIStudent agui = new AddGUIStudent();
     agui.setVisible(true);
     
   }
 
   @Override
   void viewPerson() {
-    ViewStudentGUI vgui = new ViewStudentGUI();
+    ViewGUIStudent vgui = new ViewGUIStudent();
     vgui.setVisible(true);
   }
   
