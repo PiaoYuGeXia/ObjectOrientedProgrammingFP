@@ -3,7 +3,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.HashMap;
 
 public class FileManager {
   private FileManager(){};
@@ -26,7 +25,7 @@ public class FileManager {
     }
   }
   public Attendance read(String fileName){
-    Attendance attd = new Attendance(new HashMap<Person, Boolean[]>());
+    Attendance attd = new Attendance();
     try {
       FileInputStream fis = new FileInputStream(fileName);
       ObjectInputStream ois = new ObjectInputStream(fis);

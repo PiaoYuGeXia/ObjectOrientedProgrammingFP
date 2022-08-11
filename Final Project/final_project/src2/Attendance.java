@@ -1,14 +1,10 @@
-import java.io.ObjectInputStream.GetField;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Attendance {
+public class Attendance implements Serializable{
   private ArrayList<String> name;
   private ArrayList<Person> ppl;
   private ArrayList<Boolean[]> attd;
-
-  public ArrayList<Boolean[]> getAttd() {
-    return attd;
-  }
 
   public Attendance(){
     name = new ArrayList<String>();
@@ -16,12 +12,11 @@ public class Attendance {
     attd = new ArrayList<Boolean[]>();
   }
 
+  public ArrayList<Boolean[]> getAttd() {
+    return attd;
+  }
   public int getSize(){
     return ppl.size();
-  }
-
-  public ArrayList<String> getName() {
-    return name;
   }
   public ArrayList<Person> getPpl() {
     return ppl;

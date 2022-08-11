@@ -17,16 +17,18 @@ public class LoginGUI extends JFrame{
 	private JButton btnLogin;
 	private JButton btnExit;
   private JLabel lblMsg;
+	private UserGUIFactory uGuiFactory = new UserGUIFactory();
+	UserGUI ugui;
 
-  private int checkCredential(){
+  private String checkCredential(){
     //teacher: teacher; teacher123
     if(txtAcc.getText().equals("teacher") && txtPwd.getText().equals("teacher123")){
-      return 1;
+      return "teacher";
     //employer: employer; employer123
     } else if(txtAcc.getText().equals("employer") && txtPwd.getText().equals("employer123")){
-      return 2;
+      return "employer";
     } else{
-      return 0;
+      return "null";
     }
   }
 
@@ -62,20 +64,16 @@ public class LoginGUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
         //reset warning sign
         lblMsg.setVisible(false);
-				int c = checkCredential();
-        if(c == 0){ //wrong acc/pwd, clear textboxes
+				String c = checkCredential();
+        if(c == "null"){ //wrong acc/pwd, clear textboxes
           lblMsg.setVisible(true);
           txtAcc.setText("");
           txtPwd.setText("");
-        }else if(c == 1){ //login as teacher
-          UserGUI pgui = new UserGUI("teacher");
-          pgui.setVisible(true);
+        }else { //login as specified credential
+          ugui = uGuiFactory.create(c);
+          ugui.setVisible(true);
           dispose();
-        }else{ //login as employer
-          UserGUI pgui = new UserGUI("employer");
-          pgui.setVisible(true);
-          dispose();
-        }
+				}
 			}
 		});
 		btnLogin.setBounds(80, 160, 100, 30);
