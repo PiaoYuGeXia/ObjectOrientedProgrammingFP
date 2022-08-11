@@ -28,7 +28,7 @@ public class AddGUIEmployee extends JFrame{
 
 	protected void addEmployee(){
 		//Make sure both fields have stuff
-		if(txtName.getText().isEmpty() | txtID.getText().isEmpty()){
+		if(txtName.getText().isEmpty() | txtID.getText().isEmpty() | txtSalary.getText().isEmpty()){
 			JOptionPane.showMessageDialog(null, fieldEmptyMsg);
 		} else{
 			//Read previous data to Attendance then modify it

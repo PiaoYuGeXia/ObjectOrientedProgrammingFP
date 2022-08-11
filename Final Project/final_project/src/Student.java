@@ -18,7 +18,7 @@ public class Student extends Person{
 
   @Override
   String[] getFieldNames() {
-    String[] s = {"Name","Work ID","Salary"};
+    String[] s = {"Name","Net ID"};
     return s;
   }
 }

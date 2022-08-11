@@ -9,6 +9,7 @@ abstract class TableModelUser extends AbstractTableModel{
 	TableModelUser(ArrayList<Person> p, ArrayList<Boolean[]> attd){
     int varlength = p.get(0).getFields().length;
     String[] fieldNames = p.get(0).getFieldNames();
+		columnNames = new String[fieldNames.length+5];
     columnNames[-1] = "Friday";
     columnNames[-2] = "Thursday";
     columnNames[-3] = "Wednesday";
