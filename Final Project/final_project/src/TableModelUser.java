@@ -6,27 +6,32 @@ abstract class TableModelUser extends AbstractTableModel{
 	protected String[] columnNames;
 	protected Object[][] data;
 
-	TableModelUser(ArrayList<Person> p, ArrayList<Boolean[]> attd){
+	TableModelUser(ArrayList<Person> p, ArrayList<boolean[]> arrayList){
     int varlength = p.get(0).getFields().length;
     String[] fieldNames = p.get(0).getFieldNames();
 		columnNames = new String[fieldNames.length+5];
-    columnNames[-1] = "Friday";
-    columnNames[-2] = "Thursday";
-    columnNames[-3] = "Wednesday";
-    columnNames[-4] = "Tuesday";
-    columnNames[-5] = "Monday";
+    columnNames[columnNames.length-1] = "Friday";
+    columnNames[columnNames.length-2] = "Thursday";
+    columnNames[columnNames.length-3] = "Wednesday";
+    columnNames[columnNames.length-4] = "Tuesday";
+    columnNames[columnNames.length-5] = "Monday";
 		data = new Object[p.size()][varlength + 5];
 		for(int i = 0; i < p.size(); i++){
-      for(int j = 0; j < data[0].length; j++){
-        String[] vars = p.get(j).getFields();
+			String[] vars = p.get(i).getFields();
+      for(int j = 0; j < varlength; j++){
         if(j < varlength){
           data[i][j] = vars[j];
           columnNames[j] = fieldNames[j];
         } else{
-          data[i][j] = (Boolean)attd.get(i)[j-varlength];
+          data[i][j] = (boolean)arrayList.get(i)[j-varlength];
         }
       }
     }
+		for(Object[] ob : data){
+			for (Object obb : ob){
+				System.out.println(obb);
+			}
+		}
 	}
 
 	abstract Attendance update();

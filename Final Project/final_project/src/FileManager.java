@@ -1,3 +1,4 @@
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,7 +12,7 @@ public class FileManager {
     return fm;
   }
 
-  public Boolean save(Attendance attd, String fileName){
+  public boolean save(Attendance attd, String fileName){
     try{
       FileOutputStream fos = new FileOutputStream(fileName);
       ObjectOutputStream oos = new ObjectOutputStream(fos);

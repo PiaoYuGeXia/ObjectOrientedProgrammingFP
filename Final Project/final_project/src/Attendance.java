@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 public class Attendance implements Serializable{
   private ArrayList<Person> ppl;
-  private ArrayList<Boolean[]> attd;
+  private ArrayList<boolean[]> attd;
 
   public Attendance(){
     ppl = new ArrayList<Person>();
-    attd = new ArrayList<Boolean[]>();
+    attd = new ArrayList<boolean[]>();
   }
 
-  public ArrayList<Boolean[]> getAttd() {
+  public ArrayList<boolean[]> getAttd() {
     return attd;
   }
   public int getSize(){
@@ -23,11 +23,11 @@ public class Attendance implements Serializable{
   //Add entry
   public void addPerson(Person p){
     ppl.add(p);
-    Boolean[] temp = {false, false, false, false, false};
+    boolean[] temp = {false, false, false, false, false};
     attd.add(temp);
   }
 
-  public void addPerson(Person p, Boolean[] b){
+  public void addPerson(Person p, boolean[] b){
     ppl.add(p);
     attd.add(b);
   }
@@ -44,15 +44,15 @@ public class Attendance implements Serializable{
     this.attd.remove(i);
   }
 
-  //Toggle boolean of one person's one day
-  public void takeAttendance(String name, int day){
-    int i;
-    for (i = 0; i < ppl.size(); i++){
-      if(ppl.get(i).getName() == name){
-        this.attd.get(i)[day] ^= true;
-        break;
-      }
-    }
-  }
+  // //Toggle boolean of one person's one day
+  // public void takeAttendance(String name, int day){
+  //   int i;
+  //   for (i = 0; i < ppl.size(); i++){
+  //     if(ppl.get(i).getName() == name){
+  //       this.attd.get(i)[day] ^= true;
+  //       break;
+  //     }
+  //   }
+  // }
 
 }

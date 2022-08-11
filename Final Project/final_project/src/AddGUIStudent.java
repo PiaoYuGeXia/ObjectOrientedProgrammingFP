@@ -32,7 +32,7 @@ public class AddGUIStudent extends JFrame{
 			//Read previous data to Attendance then modify it
 			attd = fm.read(fileName);
 			attd.addPerson(new Student(txtName.getText(), txtID.getText()));
-			Boolean res = fm.save(attd, fileName);
+			boolean res = fm.save(attd, fileName);
 			//If (not)saved successfully, respond
 			if(res){
 				JOptionPane.showMessageDialog(null, successMsg);
