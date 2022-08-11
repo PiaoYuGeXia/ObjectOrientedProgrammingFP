@@ -5,7 +5,7 @@ public class UserGUIFactory{
       case "teacher":
         ugui = new TeacherGUI();
         break;
-      case "Employer":
+      case "employer":
         ugui = new EmployerGUI();
         break;
       default:
