@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public abstract class AddGUI extends JFrame{
+public class ViewStudentGUI extends JFrame{
   protected JPanel contentPane;
 	protected JTextField txtField1;
 	protected JTextField txtField2;
@@ -23,9 +23,9 @@ public abstract class AddGUI extends JFrame{
 	protected String field2txt;
 	protected String fileName;
 
-  String successMsg = "New person successfully added :D";
-  String fieldEmptyMsg = "Please fill all fields :)";
-	String failMsg = "Oops, something went wrong D:";
+  String successMsg = "New person successfully added";
+  String fieldEmptyMsg = "Please fill all fields";
+	String failMsg = "Oops, something went wrong";
 
 	protected void addPerson(){
 		//Make sure both fields have stuff
@@ -46,9 +46,7 @@ public abstract class AddGUI extends JFrame{
 		}
 	}
 
-  protected abstract void setTitle();
-
-  public AddGUI(){
+  public ViewStudentGUI(){
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(800, 400, 260, 340);
 		contentPane = new JPanel();
