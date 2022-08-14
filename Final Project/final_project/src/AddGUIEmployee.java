@@ -62,7 +62,7 @@ public class AddGUIEmployee extends JFrame{
 		lblID.setBounds(20, 80, 70, 20);
 		contentPane.add(lblID);
 
-    lblSalary = new JLabel("Work ID");
+    lblSalary = new JLabel("Salary");
 		lblSalary.setBounds(20, 120, 70, 20);
 		contentPane.add(lblSalary);
 		

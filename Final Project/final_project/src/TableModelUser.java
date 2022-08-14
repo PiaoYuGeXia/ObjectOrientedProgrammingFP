@@ -66,4 +66,8 @@ abstract class TableModelUser extends AbstractTableModel{
 	public Class<?> getColumnClass(int c) {
 		return getValueAt(0, c).getClass();
 	}
+
+	public void delete() {
+		
+	}
 }
