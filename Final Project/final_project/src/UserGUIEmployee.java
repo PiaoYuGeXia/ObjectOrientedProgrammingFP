@@ -1,7 +1,7 @@
 public class UserGUIEmployee extends UserGUI{
 
   public UserGUIEmployee(){
-    super("employer","Add Employee","Attendance");
+    super("employer","Add Employee","View Employees");
   }
 
   @Override

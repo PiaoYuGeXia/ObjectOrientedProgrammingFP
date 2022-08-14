@@ -1,7 +1,7 @@
 public class UserGUITeacher extends UserGUI{
 
   public UserGUITeacher(){
-    super("teacher","Add Student","Attendance");
+    super("teacher","Add Student","View Students");
   }
 
   @Override
